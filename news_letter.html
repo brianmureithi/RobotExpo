@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Robot Expo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+ 
+</head>
+<style>
+   
+    
+</style>
+
+
+<body>
+
+<!-- Navigation bar -->
+    <div class="nav">
+        <a class="nav-brand" href="index.html">
+            <img class="logo" src="images/logo.png">
+        </a>
+        <div class="nav-links">
+            <ul>
+                <li class="list-item"><a  href="index.html">Home</a></li>
+                <li class="list-item"><a href="military_robots.html">Military</a></li>
+                <li class="list-item"><a href="industrial_robots.html">Industrial</a></li>
+                <li class="list-item"><a href="domestic_robots.html">Domestic</a></li>
+                <li class="list-item"><a href="educational_robots.html">Educational</a></li>
+                <li class="list-item"><a href="visiting.html">Visiting hours</a></li>
+                <li class="list-item  news-letter"><a  class=" subscribe-active" href="news_letter.html">Subscribe </a></li>
+            </ul>
+
+        </div>
+        <div class="mobile-view">
+            <svg xmlns="http://www.w3.org/2000/svg"  id="close"width="15px" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
+            <ul>
+                <li class="list-item"><a class="active" href="index.html">Home</a></li>
+                <li class="list-item"><a href="military_robots.html">Military</a></li>
+                <li class="list-item"><a href="industrial_robots.html">Industrial</a></li>
+                <li class="list-item"><a href="domestic_robots.html">Domestic</a></li>
+                <li class="list-item"><a href="educational_robots.html">Educational</a></li>
+                <li class="list-item"><a href="visiting.html">Visiting hours</a></li>
+                <li class="list-item  news-letter"><a href="news_letter.html">Subscribe </a></li>
+            </ul>
+
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" id="toggle"width="25px" style="margin-right:9px;margin-top:8px;color:rgb(216, 206, 206)"viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+
+
+    </div>
+    <!-- End of nav -->
+    <div class="container">
+       <div class="message">
+        <h4 class="subscribe-message">To subscribe to our Newsletter, Please Enter the your contact details below</h4>
+
+       </div>
+       <div class="successfull-message">
+        <h1>Thank you for subscribing. We will use the following details provided by you</h1>
+        <div>
+        <p>Name:</p><h5 id="nameSlot"></h5>
+    </div>
+        <div>
+        <p>Age:</p><h5 id="ageSlot"> </h5>
+    </div>
+        <div>
+        <p>Email:</p><h5 id="emailSlot"></h5>
+    </div>
+       </div>
+      <form  class="newsletter-form">
+        <div>
+        <label  class="form-label" for="nameId"> Name</label>
+        <input class="form-control" type="text" placeholder="Enter name" name="name" id='nameId'/>
+        <small></small>
+    </div>
+        <div>
+        <label class="form-label" for="ageId"> Age</label>
+        <input class="form-control" type="number" placeholder="Enter Age" name="age" id='ageId'/>
+        <small></small>
+    </div>
+        <div>
+        <label class="form-label" for="emailId"> Email</label>
+        <input class="form-control" type="text" placeholder="Enter Email" name="email" id='emailId'/>
+        <small></small>
+    </div>
+        <input type="submit" value="Submit"/>
+
+       </form> 
+     
+
+    </div>
+<!-- Beginning of footer -->
+    <div class="footer">
+       <p>This website has been developed by WIMP Engineering R&D Consultants for Robot Expo &copy 2022</p>
+
+    </div>
+    <script src="./main.js">
+    </script>
+      
+    
+    <script>
+      
+       function showMessage(input, message,type){
+        const msg = input.parentNode.querySelector("small")
+        msg.innerText = message
+      
+        return type;
+
+       }
+       function showError(input, message){
+        return showMessage(input, message,false)
+
+       }
+       function showSuccess(input){
+        return showMessage(input,'',true)
+
+       }
+
+
+       function hasValue(input,message){
+        if(input.value.trim() === ""){
+            return showError(input, message)
+        }
+        return showSuccess(input);
+       }
+       function validateEmail(input, requiredMsg, invalidMsg){
+
+        if(!hasValue(input,requiredMsg)){
+            return false
+        }
+
+        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const email = input.value.trim()
+        if(!emailRegex.test(email)){
+            return showError(input,invalidMsg)
+        }
+        return true;
+       }
+
+       let form =document.querySelector('.newsletter-form')
+       const NAME_REQUIRED = "Please enter your name"
+       const AGE_REQUIRED = "Please enter your age"
+       const EMAIL_INVALID = "Please enter valid email address"
+
+       form.addEventListener('submit',function(e){
+        e.preventDefault()
+       let validateName = hasValue(form.elements["name"],NAME_REQUIRED)
+       let ageValidate = hasValue(form.elements["age"],AGE_REQUIRED)
+       let emailValidate = validateEmail(form.elements["email"],EMAIL_INVALID)
+       let userDetails = ({
+            name:form.elements["name"].value,
+            age:form.elements["age"].value,
+            email:form.elements["email"].value
+
+        })
+
+       if(validateName && ageValidate && emailValidate){
+        window.localStorage.setItem("userObject",JSON.stringify(userDetails))
+
+        if(window.localStorage.userObject){
+        let newObject =JSON.parse(window.localStorage.getItem('userObject'));
+        console.log(newObject)
+        document.querySelector('.subscribe-message').style.display = 'none'
+        document.querySelector('.newsletter-form').style.display = 'none'
+        document.querySelector('.successfull-message').style.display = 'flex'
+        document.querySelector('#nameSlot').innerText = newObject.name
+        document.querySelector('#ageSlot').innerText =newObject.age
+        document.querySelector('#emailSlot').innerText =newObject.email
+
+       }
+
+       }
+     
+
+      
+  
+       })
+  /*       const form = document.querySelector('#form-subscribe');
+        console.log(form)
+
+        function LoadForm(){
+            let  br = document.createElement("br"); */
+            /* Create form dynamicly */
+    
+        
+          
+    
+    
+            /* name label */
+           /*  let nameLabel =  document.createElement("label")
+            nameLabel.innerHTML = "Name"
+            nameLabel.setAttribute('class','name-label')
+            let ageLabel =  document.createElement("label")
+            ageLabel.innerHTML = "Age"
+            ageLabel.setAttribute('class','age-label')
+            let emailLabel =  document.createElement("label")
+            emailLabel.innerHTML = "Email"
+            emailLabel.setAttribute('class','email-label')
+     */
+            /* First Input */
+    
+          /*   let name =  document.createElement("input")
+            name.setAttribute('type','text')
+            name.setAttribute('id','nameId')
+            name.setAttribute("placeholder","Enter name")
+            name.setAttribute('class','form-control') */
+    
+            /* Age input */
+         /*    let age =  document.createElement("input")
+            name.setAttribute('type','number')
+            name.setAttribute('id','ageId')
+            name.setAttribute('placeholder','Enter Age')
+            name.setAttribute('class','form-control') */
+    
+            /* Email input */ 
+           /*  let email =  document.createElement("input")
+            name.setAttribute('type','email')
+            name.setAttribute('id','emailId')
+            name.setAttribute('placeholder','Enter Email')
+            name.setAttribute('class','form-control')
+         
+            /* Submit button */
+           /*  let submitBtn =  document.createElement("input")
+            name.setAttribute('type','submit')
+            name.setAttribute('value','Submit')
+            name.setAttribute('class','submit-button') */
+
+            /* Appending */
+    
+          /*   form.appendChild(name)
+            
+          
+          
+            form.appendChild(age)
+         
+    
+            
+            form.appendChild(emailLabel)
+            form.appendChild(email)
+           
+            
+            form.appendChild(ageLabel)
+            form.appendChild(submitBtn)
+            form.appendChild(nameLabel)
+            
+          
+            
+            document.getElementsByClassName("container")[0].appendChild(form);
+        } */
+    
+        /* Form Listener */
+       
+       
+     
+    
+    
+    
+    </script>
+</body>
+</html>
